@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      {{#each model as |todo|}}
+        <li class="list-group-item">
+          <div class="pull-right">
+            <button class="btn btn-sm btn-success" {{action "completeTodo" todo}}>
+              &check;
+            </button>
+          </div>
+          {{todo.task}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form {{action "createTodo" on="submit"}}>
+      {{input value=task class="form-control"}}
+      <button type="submit" class="btn btn-block btn-primary">
+        Add Item
+      </button>
+    </form>
+  </div>
+</div>
